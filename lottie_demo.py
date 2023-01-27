@@ -1,7 +1,59 @@
 import requests
 import json
+import time
 import streamlit as st
 from streamlit_lottie import st_lottie
+
+
+
+myButton =st.button('Cliquez moi !')
+
+if myButton:
+    st.caption('Vous venez de me :red[cliquer] :ok:')
+
+st.stop()
+def bar_progression(progress, t):
+    percent_complete = 0
+    my_bar = st.progress(percent_complete)
+    while percent_complete < 100:
+        percent_complete += progress
+        time.sleep(t)
+        my_bar.progress(percent_complete)
+    my_bar.empty()
+
+number = st.number_input ( 'Pick a number', 0, 10 )
+bar_progression(number, 2)
+
+st.stop()
+
+
+
+
+
+import streamlit as st
+from PIL import Image
+
+image = Image.open('sunrise.jpg')
+
+st.image(image, caption='Sunrise by the mountains')
+
+st.stop()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 # pour les fichiers
@@ -28,3 +80,6 @@ lottie_json = load_lottieurl(lottie_url)
 st_lottie(lottie_json, height=200)
 
 st.stop()
+
+
+
